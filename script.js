@@ -143,6 +143,7 @@ function homePage() {
         </div>
       </div>
     </section>
+    ${contactSection()}
   `);
 }
 
@@ -152,6 +153,50 @@ function feature(num, title, text, bg) {
 
 function pathCard(path, title, text, icon) {
   return `<a href="${path}" data-route class="group rounded-[2rem] border border-white/70 bg-white/75 p-6 shadow-sm backdrop-blur transition hover:-translate-y-2 hover:shadow-glow focus:outline-none focus:ring-4 focus:ring-ocean/20"><span class="text-4xl transition group-hover:scale-110 inline-block">${icon}</span><h3 class="mt-5 text-xl font-bold text-night">${title}</h3><p class="mt-2 text-sm leading-7 text-ink/65">${text}</p><span class="mt-5 inline-flex text-sm font-bold text-ocean">اعرف أكتر ←</span></a>`;
+}
+
+function contactSection() {
+  return `
+    <section id="contact-us" class="px-4 py-14 sm:px-6 lg:px-8">
+      <div class="mx-auto max-w-7xl overflow-hidden rounded-[2.75rem] border border-white/70 bg-white/75 shadow-gold backdrop-blur">
+        <div class="grid lg:grid-cols-[.9fr_1.1fr]">
+          <div class="relative overflow-hidden bg-night p-8 text-cream md:p-10 lg:p-12">
+            <div class="absolute -left-24 top-10 h-52 w-52 rounded-full bg-champagne/30 blur-3xl"></div>
+            <div class="absolute -bottom-20 right-8 h-56 w-56 rounded-full bg-mint/25 blur-3xl"></div>
+            <div class="relative reveal">
+              <p class="eyebrow text-champagne">تواصل معنا</p>
+              <h2 class="mt-4 font-display text-4xl font-bold leading-tight lg:text-5xl">خلينا نختار معاك مسار الإنجليزي الأنسب.</h2>
+              <p class="mt-5 leading-8 text-cream/72">ابعت بياناتك، وفريق الاستشارات التعليمية هيرد عليك بخطة واضحة حسب السن، المستوى، الهدف، والمواعيد المناسبة.</p>
+              <div class="mt-8 grid gap-4">
+                ${contactInfoCard('💬', 'واتساب سريع', '+20 100 000 0000', 'رد خلال ساعات العمل')}
+                ${contactInfoCard('📧', 'البريد الإلكتروني', 'hello@lingowich.academy', 'للاستفسارات والشراكات')}
+                ${contactInfoCard('🕘', 'مواعيد التواصل', 'يوميًا 10 ص - 9 م', 'بتوقيت القاهرة')}
+              </div>
+              <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+                <a href="/contact" data-route class="rounded-full bg-champagne px-6 py-3 text-center font-bold text-night transition hover:-translate-y-1 hover:bg-cream focus:outline-none focus:ring-4 focus:ring-champagne/30">صفحة التواصل</a>
+                <a href="/assessment" data-route class="rounded-full border border-cream/25 px-6 py-3 text-center font-bold text-cream transition hover:-translate-y-1 hover:bg-white/10 focus:outline-none focus:ring-4 focus:ring-cream/20">احجز اختبار مستوى</a>
+              </div>
+            </div>
+          </div>
+          <form id="homeContactForm" class="p-6 md:p-10 lg:p-12 reveal delay-150">
+            <p class="eyebrow">Contact form</p>
+            <h3 class="mt-3 font-display text-3xl font-bold text-night">أرسل رسالة قصيرة</h3>
+            <div class="mt-6 grid gap-4 md:grid-cols-2">
+              ${input('homeContactName','الاسم','text')}
+              ${input('homeContactPhone','رقم واتساب','tel')}
+              <label class="field md:col-span-2"><span>المسار المهتم به</span><select required class="form-control"><option value="">اختر المسار</option><option>Kids English</option><option>Teens English</option><option>Adults English</option><option>Business English</option><option>Interactive Clubs</option></select></label>
+              <label class="field md:col-span-2"><span>رسالتك</span><textarea required class="form-control min-h-32" placeholder="اكتب السن، المستوى المتوقع، والهدف من التعلم..."></textarea></label>
+            </div>
+            <button class="mt-6 w-full rounded-full bg-ocean px-6 py-4 font-bold text-white shadow-glow transition hover:-translate-y-1 hover:bg-night focus:outline-none focus:ring-4 focus:ring-ocean/25">إرسال الرسالة</button>
+            <p id="homeContactMessage" class="mt-4 hidden rounded-2xl bg-mint/30 p-4 text-center font-bold text-ocean">تم إرسال رسالتك بنجاح. سنعود إليك قريبًا.</p>
+          </form>
+        </div>
+      </div>
+    </section>`;
+}
+
+function contactInfoCard(icon, title, value, note) {
+  return `<div class="rounded-[1.5rem] border border-white/15 bg-white/10 p-4 backdrop-blur"><div class="flex items-start gap-3"><span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl bg-cream/10 text-xl">${icon}</span><div><h3 class="font-bold text-cream">${title}</h3><p class="mt-1 font-bold text-champagne">${value}</p><p class="mt-1 text-sm text-cream/58">${note}</p></div></div></div>`;
 }
 
 function programsPage(type = null) {
@@ -297,7 +342,7 @@ function schedulePage() {
 
 function contactPage() {
   return layoutShell(`${pageHero('تواصل مع Lingowich', 'احجز مكالمة تعريفية أو اسأل عن أنسب مسار لطفلك أو لفريق شركتك.', 'Contact', '/assessment', 'اختبار مستوى')}
-  <section class="px-4 py-10 sm:px-6 lg:px-8"><div class="mx-auto grid max-w-7xl gap-8 lg:grid-cols-2"><div class="rounded-[2rem] bg-night p-8 text-cream shadow-glow"><h2 class="font-display text-4xl font-bold">جاهزين نبدأ؟</h2><p class="mt-4 leading-8 text-cream/70">فريق الاستشارات التعليمية هيساعدك تختار البرنامج المناسب ويشرح خطة الدراسة الأونلاين بالكامل.</p><div class="mt-8 space-y-4 text-cream/80"><p>📧 hello@lingowich.academy</p><p>💬 WhatsApp: +20 100 000 0000</p><p>🌍 Online worldwide</p></div></div><div class="rounded-[2rem] border border-white/70 bg-white/80 p-8 shadow-gold"><h3 class="font-display text-3xl font-bold text-night">أرسل رسالة</h3><div class="mt-5 grid gap-4">${input('contactName','الاسم','text')}${input('contactPhone','رقم الهاتف','tel')}<label class="field"><span>الرسالة</span><textarea class="form-control min-h-32"></textarea></label><button class="rounded-full bg-ocean px-6 py-4 font-bold text-white transition hover:-translate-y-1 hover:bg-night">إرسال</button></div></div></div></section>`);
+  <section class="px-4 py-10 sm:px-6 lg:px-8"><div class="mx-auto grid max-w-7xl gap-8 lg:grid-cols-2"><div class="rounded-[2rem] bg-night p-8 text-cream shadow-glow"><h2 class="font-display text-4xl font-bold">جاهزين نبدأ؟</h2><p class="mt-4 leading-8 text-cream/70">فريق الاستشارات التعليمية هيساعدك تختار البرنامج المناسب ويشرح خطة الدراسة الأونلاين بالكامل.</p><div class="mt-8 grid gap-4">${contactInfoCard('📧', 'البريد الإلكتروني', 'hello@lingowich.academy', 'للاستفسارات والشراكات')}${contactInfoCard('💬', 'واتساب مباشر', '+20 100 000 0000', 'رد سريع من فريق التسجيل')}${contactInfoCard('🌍', 'نطاق الخدمة', 'Online worldwide', 'طلاب من مصر وخارجها')}</div></div><form id="contactForm" class="rounded-[2rem] border border-white/70 bg-white/80 p-8 shadow-gold"><h3 class="font-display text-3xl font-bold text-night">أرسل رسالة</h3><div class="mt-5 grid gap-4">${input('contactName','الاسم','text')}${input('contactPhone','رقم الهاتف','tel')}<label class="field"><span>الرسالة</span><textarea required class="form-control min-h-32" placeholder="اكتب سؤالك أو السن والهدف من الكورس..."></textarea></label><button class="rounded-full bg-ocean px-6 py-4 font-bold text-white transition hover:-translate-y-1 hover:bg-night">إرسال</button><p id="contactMessage" class="hidden rounded-2xl bg-mint/30 p-4 text-center font-bold text-ocean">تم استلام رسالتك بنجاح. سنتواصل معك قريباً.</p></div></form></div></section>`);
 }
 
 function pageHero(title, desc, label, ctaPath, cta) {
@@ -312,6 +357,20 @@ function wirePagination(prefix, cb) { document.querySelectorAll(`[data-${prefix}
 function bindForms() {
   const leadForm = document.getElementById('leadForm');
   if (leadForm) leadForm.addEventListener('submit', (e) => { e.preventDefault(); document.getElementById('formMessage').classList.remove('hidden'); leadForm.reset(); });
+
+  const contactForms = [
+    { form: document.getElementById('homeContactForm'), message: document.getElementById('homeContactMessage') },
+    { form: document.getElementById('contactForm'), message: document.getElementById('contactMessage') }
+  ];
+
+  contactForms.forEach(({ form, message }) => {
+    if (!form || !message) return;
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      message.classList.remove('hidden');
+      form.reset();
+    });
+  });
 }
 
 function render() {
