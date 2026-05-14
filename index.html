@@ -1,36 +1,110 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مرحباً بك في أكوادرا</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
-    <style>
-      body {
-        font-family: 'Cairo', sans-serif;
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lingowich International Academy | أكاديمية إنجليزي أونلاين</title>
+  <meta name="description" content="تطبيق تعليمي فاخر لأكاديمية Lingowich International Academy لتعليم الإنجليزية أونلاين للأطفال، المراهقين، الكبار، Business English والنوادي التفاعلية." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            night: '#0e1b2a',
+            ink: '#172238',
+            ocean: '#006d77',
+            mint: '#83c5be',
+            cream: '#fff8ea',
+            pearl: '#f8efe2',
+            champagne: '#d8b76f',
+            coral: '#ff7a66'
+          },
+          boxShadow: {
+            glow: '0 24px 80px rgba(0, 109, 119, .22)',
+            gold: '0 18px 50px rgba(216, 183, 111, .30)'
+          }
+        }
       }
-    </style>
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Readex+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body class="bg-gray-100 flex items-center justify-center min-h-screen text-gray-800">
-    <div class="max-w-md w-full text-center p-6">
-        <h1 class="text-3xl font-bold text-slate-800 mb-4 tracking-tight">مرحباً بك في أكوادرا</h1>
-        <p class="text-gray-600 mb-8">
-            المنشئ الخارق الذي يساعدك على بناء تطبيقات جميلة باستخدام Tailwind CSS.
-        </p>
-        
-        <div class="bg-white p-8 rounded-xl shadow-lg border border-gray-100 hover:scale-105 transition-all duration-300 cursor-pointer card group">
-            <div class="w-12 h-12 bg-indigo-50 rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:bg-indigo-100 transition-colors">
-                 <svg class="w-6 h-6 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
-            </div>
-            <h2 class="text-xl font-semibold text-gray-900 mb-2">جاهز للبناء</h2>
-            <p class="text-gray-500 text-sm">اطلب من الذكاء الاصطناعي تغيير هذا التصميم أو بناء شيء جديد كلياً.</p>
+<body class="bg-cream text-ink selection:bg-champagne selection:text-night">
+  <div class="fixed inset-0 -z-10 overflow-hidden bg-[radial-gradient(circle_at_top_left,#fff8ea_0,#f8efe2_35%,#dff5f1_100%)]">
+    <div class="orb orb-one"></div>
+    <div class="orb orb-two"></div>
+    <div class="orb orb-three"></div>
+    <div class="luxury-grain"></div>
+  </div>
+
+  <header class="sticky top-0 z-50 border-b border-white/40 bg-cream/75 backdrop-blur-2xl">
+    <nav class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8" aria-label="Main navigation">
+      <a href="/" data-route class="group flex items-center gap-3 rounded-2xl focus:outline-none focus:ring-4 focus:ring-champagne/30">
+        <span class="relative flex h-12 w-12 items-center justify-center rounded-2xl bg-night text-cream shadow-gold transition duration-300 group-hover:-rotate-6 group-hover:scale-105">
+          <span class="font-display text-2xl">L</span>
+          <span class="absolute -left-1 -top-1 h-3 w-3 rounded-full bg-champagne animate-pulse"></span>
+        </span>
+        <span class="leading-tight">
+          <span class="block font-display text-xl font-bold tracking-tight text-night">Lingowich</span>
+          <span class="block text-[11px] font-semibold uppercase tracking-[.28em] text-ocean">International Academy</span>
+        </span>
+      </a>
+
+      <button id="menuButton" class="rounded-2xl border border-night/10 bg-white/70 p-3 text-night shadow-sm transition hover:-translate-y-0.5 hover:bg-white focus:outline-none focus:ring-4 focus:ring-ocean/20 lg:hidden" aria-label="فتح القائمة" aria-expanded="false">
+        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+
+      <div id="navLinks" class="nav-panel hidden lg:flex lg:items-center lg:gap-2">
+        <a href="/programs" data-route class="nav-link">البرامج</a>
+        <a href="/clubs" data-route class="nav-link">Clubs</a>
+        <a href="/assessment" data-route class="nav-link">اختبار المستوى</a>
+        <a href="/dashboard/students" data-route class="nav-link">لوحة الأكاديمية</a>
+        <a href="/contact" data-route class="nav-link">تواصل معنا</a>
+      </div>
+
+      <a href="/assessment" data-route class="hidden rounded-full bg-night px-5 py-3 text-sm font-bold text-cream shadow-glow transition hover:-translate-y-1 hover:bg-ocean focus:outline-none focus:ring-4 focus:ring-ocean/25 lg:inline-flex">ابدأ رحلة ابنك</a>
+    </nav>
+  </header>
+
+  <main id="app" class="min-h-screen"></main>
+
+  <footer class="relative overflow-hidden border-t border-night/10 bg-night text-cream">
+    <div class="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_20%_20%,#d8b76f,transparent_25%),radial-gradient(circle_at_80%_10%,#83c5be,transparent_24%)]"></div>
+    <div class="relative mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 lg:grid-cols-[1.2fr_.8fr_.8fr] lg:px-8">
+      <div>
+        <div class="flex items-center gap-3">
+          <span class="flex h-12 w-12 items-center justify-center rounded-2xl bg-champagne text-night font-display text-2xl font-bold">L</span>
+          <div>
+            <p class="font-display text-2xl font-bold">Lingowich International Academy</p>
+            <p class="text-sm text-cream/65">English learning, fully online, beautifully structured.</p>
+          </div>
         </div>
-        
-        <div class="mt-8 text-sm text-gray-400">
-            مدعوم بواسطة Gemini 3 Pro
+        <p class="mt-5 max-w-xl text-sm leading-7 text-cream/70">منصة تعليم إنجليزي أونلاين من سن ٥ إلى ١٨ سنة، مع كورسات للكبار، بيزنس إنجلش، ونوادي محادثة تفاعلية تخلّي اللغة ممارسة يومية ممتعة.</p>
+      </div>
+      <div>
+        <h3 class="mb-4 font-bold text-champagne">مسارات سريعة</h3>
+        <div class="grid gap-3 text-sm text-cream/75">
+          <a href="/programs/kids" data-route class="footer-link">Kids English</a>
+          <a href="/programs/teens" data-route class="footer-link">Teens Mastery</a>
+          <a href="/programs/business" data-route class="footer-link">Business English</a>
+          <a href="/clubs" data-route class="footer-link">Interactive Clubs</a>
         </div>
+      </div>
+      <div>
+        <h3 class="mb-4 font-bold text-champagne">تواصل</h3>
+        <div class="space-y-3 text-sm text-cream/75">
+          <p>Online Academy • Egypt & Worldwide</p>
+          <p>hello@lingowich.academy</p>
+          <p>WhatsApp: +20 100 000 0000</p>
+        </div>
+      </div>
     </div>
-    <script src="script.js"></script>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
